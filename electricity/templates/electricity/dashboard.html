@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electricity Dashboard</title>
+    <style>
+        table { border-collapse: collapse; width: 80%%; margin: auto; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        th { background-color: #f4f4f4; }
+        h2 { text-align: center; }
+    </style>
+</head>
+<body>
+    <h2>Electricity Market Summary</h2>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Date</th>
+            <th>Avg MCP</th>
+            <th>Total MCV</th>
+        </tr>
+        {% for row in stats %}
+        <tr>
+            <td>{{ row.product__name }}</td>
+            <td>{{ row.date }}</td>
+            <td>{{ row.avg_price|floatformat:2 }}</td>
+            <td>{{ row.total_volume|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
